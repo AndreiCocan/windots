@@ -1,0 +1,165 @@
+.shell powershell
+
+# ============================================================================
+# SYSTEM / CONFIG
+# ============================================================================
+
+# Reload whkd configuration
+alt + shift + o         : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden
+
+# Reload komorebi configuration
+alt + shift + r         : komorebic reload-configuration
+
+# Retile windows
+alt + shift + w         : komorebic retile
+
+# Pause komorebi (toggle pause)
+alt + shift + p         : komorebic toggle-pause
+
+# Stop komorebi
+alt + shift + e         : komorebic stop
+
+# ============================================================================
+# WINDOW FOCUS
+# ============================================================================
+
+# Focus windows (hjkl vim-style)
+alt + h                 : komorebic focus left
+alt + j                 : komorebic focus down
+alt + k                 : komorebic focus up
+alt + l                 : komorebic focus right
+
+# Focus windows (arrow keys)
+alt + left              : komorebic focus left
+alt + down              : komorebic focus down
+alt + up                : komorebic focus up
+alt + right             : komorebic focus right
+
+# Cycle focus
+alt + space             : komorebic cycle-focus next
+
+# ============================================================================
+# WINDOW MOVEMENT
+# ============================================================================
+
+# Move windows (hjkl vim-style)
+alt + shift + h         : komorebic move left
+alt + shift + j         : komorebic move down
+alt + shift + k         : komorebic move up
+alt + shift + l         : komorebic move right
+
+# Move windows (arrow keys)
+alt + shift + left      : komorebic move left
+alt + shift + down      : komorebic move down
+alt + shift + up        : komorebic move up
+alt + shift + right     : komorebic move right
+
+# ============================================================================
+# WINDOW RESIZING
+# ============================================================================
+
+# Resize width
+alt + u                 : komorebic resize-axis horizontal decrease
+alt + p                 : komorebic resize-axis horizontal increase
+
+# Resize height
+alt + i                 : komorebic resize-axis vertical decrease
+alt + o                 : komorebic resize-axis vertical increase
+
+# ============================================================================
+# WINDOW STATE
+# ============================================================================
+
+# Close window
+alt + w                 : komorebic close
+
+# Minimize window
+alt + m                 : komorebic minimize
+
+# Toggle floating
+alt + shift + space     : komorebic toggle-float
+
+# Toggle tiling
+alt + t                 : komorebic toggle-tiling
+
+# Toggle fullscreen/monocle
+alt + f                 : komorebic toggle-monocle
+
+# Toggle tiling direction
+alt + v                 : komorebic flip-layout horizontal
+
+# ============================================================================
+# WORKSPACES
+# ============================================================================
+
+# Focus workspaces
+alt + 1                 : komorebic focus-workspace 0
+alt + 2                 : komorebic focus-workspace 1
+alt + 3                 : komorebic focus-workspace 2
+alt + 4                 : komorebic focus-workspace 3
+alt + 5                 : komorebic focus-workspace 4
+alt + 6                 : komorebic focus-workspace 5
+alt + 7                 : komorebic focus-workspace 6
+alt + 8                 : komorebic focus-workspace 7
+alt + 9                 : komorebic focus-workspace 8
+
+# Move window to workspace and follow
+alt + shift + 1         : komorebic move-to-workspace 0; komorebic focus-workspace 0
+alt + shift + 2         : komorebic move-to-workspace 1; komorebic focus-workspace 1
+alt + shift + 3         : komorebic move-to-workspace 2; komorebic focus-workspace 2
+alt + shift + 4         : komorebic move-to-workspace 3; komorebic focus-workspace 3
+alt + shift + 5         : komorebic move-to-workspace 4; komorebic focus-workspace 4
+alt + shift + 6         : komorebic move-to-workspace 5; komorebic focus-workspace 5
+alt + shift + 7         : komorebic move-to-workspace 6; komorebic focus-workspace 6
+alt + shift + 8         : komorebic move-to-workspace 7; komorebic focus-workspace 7
+alt + shift + 9         : komorebic move-to-workspace 8; komorebic focus-workspace 8
+
+# Focus recent workspace
+alt + oem_3             : komorebic focus-last-workspace
+
+# ============================================================================
+# MONITOR MANAGEMENT
+# ============================================================================
+
+# Move workspace to monitor
+alt + shift + a         : komorebic cycle-move-to-monitor previous
+alt + shift + f         : komorebic cycle-move-to-monitor next
+alt + shift + d         : komorebic cycle-move-to-monitor previous
+alt + shift + s         : komorebic cycle-move-to-monitor next
+
+# ============================================================================
+# APPLICATION SHORTCUTS
+# ============================================================================
+
+# Open Windows Terminal (WSL)
+alt + return            : wt wsl -d Linux
+
+# Open Powershell
+alt + shift + return    : wt
+
+# Open File Explorer
+alt + e                 : Start-Process "shell:appsFolder\Files_1y0xx7n9077q4!App"
+
+# Open Browser
+alt + b                 : start chrome
+
+# Open Neovim in WSL
+alt + c                 : wt wsl -d Linux nvim
+
+# Open Lazydocker in WSL
+alt + d                 : wt wsl -d Linux lazydocker
+
+# Open k9s in WSL
+alt + ctrl + k          : wt wsl -d Linux k9s
+
+# Open btop in WSL
+alt + s                 : wt wsl -d Linux btop
+
+# Open YouTube
+alt + y                 : start chrome -ArgumentList "--new-window", "--app=https://www.youtube.com"
+
+# Open Claude
+alt + a                 : start chrome -ArgumentList "--new-window", "--app=https://www.claude.ai"
+
+# Restart Yasb
+alt + shift + b         : Stop-Process -Name yasb -ErrorAction SilentlyContinue; Start-Sleep -Seconds 1; Start-Process yasb
